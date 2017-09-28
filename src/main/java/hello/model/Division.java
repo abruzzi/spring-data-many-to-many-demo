@@ -6,7 +6,6 @@ import java.util.List;
 @Entity
 @Table(name = "divisions")
 public class Division {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -14,7 +13,7 @@ public class Division {
 	private String name;
 
 	@Column
-	@OneToMany(mappedBy = "divisions", targetEntity = DivisionPermission.class)
+	@OneToMany(mappedBy = "division", targetEntity = DivisionPermission.class)
 	private List<DivisionPermission> divisionPermissions;
 
 	public List<DivisionPermission> getDivisionPermissions() {

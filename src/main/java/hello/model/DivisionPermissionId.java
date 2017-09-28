@@ -1,38 +1,41 @@
 package hello.model;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import java.io.Serializable;
 
 @Embeddable
 public class DivisionPermissionId implements Serializable {
-    @Column(name = "task_id")
-    private Long taskId;
+    @ManyToOne
+    @JoinColumn(name = "task_id")
+    private Task task;
 
-    @Column(name = "division_id")
-    private Long divisionId;
+    @ManyToOne
+    @JoinColumn(name = "division_id")
+    private Division division;
 
     public DivisionPermissionId() {
     }
 
-    public DivisionPermissionId(Long taskId, Long divisionId) {
-        this.taskId = taskId;
-        this.divisionId = divisionId;
+    public DivisionPermissionId(Task task, Division division) {
+        this.task = task;
+        this.division = division;
     }
 
-    public Long getTaskId() {
-        return taskId;
+    public Task getTask() {
+        return task;
     }
 
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
+    public void setTask(Task task) {
+        this.task = task;
     }
 
-    public Long getDivisionId() {
-        return divisionId;
+    public Division getDivision() {
+        return division;
     }
 
-    public void setDivisionId(Long divisionId) {
-        this.divisionId = divisionId;
+    public void setDivision(Division division) {
+        this.division = division;
     }
 }

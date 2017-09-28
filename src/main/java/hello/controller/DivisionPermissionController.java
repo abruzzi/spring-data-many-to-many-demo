@@ -22,16 +22,6 @@ public class DivisionPermissionController {
 
     @RequestMapping(method = RequestMethod.POST)
     public DivisionPermission create(@RequestBody DivisionPermission divisionPermission) {
-        Task task = taskRepository.findOne(divisionPermission.getDivisionPermissionId().getTaskId());
-        Division division = divisionRepository.findOne(divisionPermission.getDivisionPermissionId().getDivisionId());
-
-        divisionPermission.setTask(task);
-        divisionPermission.setDivision(division);
-
-        division.getDivisionPermissions().add(divisionPermission);
-
-        taskRepository.save(task);
-        divisionRepository.save(division);
 
         return divisionPermission;
     }

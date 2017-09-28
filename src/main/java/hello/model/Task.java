@@ -11,7 +11,7 @@ public class Task {
     private Long id;
 
     @Column
-    @OneToMany(mappedBy = "tasks", targetEntity = DivisionPermission.class)
+    @OneToMany(mappedBy = "task", targetEntity = DivisionPermission.class)
     private List<DivisionPermission> divisionPermissions;
 
     public List<DivisionPermission> getDivisionPermissions() {

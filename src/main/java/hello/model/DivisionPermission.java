@@ -1,6 +1,8 @@
 package hello.model;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Entity
@@ -8,29 +10,6 @@ import java.util.Date;
 public class DivisionPermission {
     @EmbeddedId
     private DivisionPermissionId divisionPermissionId;
-
-    private Task task;
-    private Division division;
-
-    @ManyToOne
-    @JoinColumn(name = "task_id")
-    public Task getTask() {
-        return task;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "division_id")
-    public Division getDivision() {
-        return division;
-    }
-
-    public void setDivision(Division division) {
-        this.division = division;
-    }
 
     private Date expireAt;
 
